@@ -1,8 +1,8 @@
 const information = document.getElementById('info')
-information.innerText = `This app is using Chrome (v${window.versions.chrome()}), Node.js (v${window.versions.node()}), and Electron (v${window.versions.electron()})`
+information.innerText = `This app is using Chrome (v${globalThis.versions.chrome()}), Node.js (v${globalThis.versions.node()}), and Electron (v${globalThis.versions.electron()})`
 
 const func = async () => {
-    const response = await window.versions.ping()
+    const response = await globalThis.versions.ping()
     console.log(response) // prints out 'pong'
 }
 

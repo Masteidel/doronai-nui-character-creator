@@ -13,16 +13,16 @@ const createWindow = () => {
     win.loadFile('index.html')
 }
 
-app.whenReady().then(() => {
-    ipcMain.handle('ping', () => 'pong')
-    
-    createWindow()
+await app.whenReady()
 
-    app.on('activate', () => {
-        if (BrowserWindow.getAllWindows().length === 0) {
-            createWindow()
-        }
-    })
+ipcMain.handle('ping', () => 'pong')
+
+createWindow()
+
+app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+        createWindow()
+    }
 })
 
 app.on('window-all-closed', () => {
